@@ -47,7 +47,7 @@ export default function App() {
           onPress={handlePress}
         />
       </View>
-      <View style={{ marginTop: 20 }}>
+      <View style={styles.goalContainer}>
         {arr.map((item, index) => (
           <View key={index}>
             <ShowArrItem listItem={item} id={index} />
@@ -79,12 +79,17 @@ const styles = StyleSheet.create({
     width: "80%",
     color: "#F0FFCE",
   },
+  goalContainer: {
+    marginTop: 20,
+  },
   buttonItems: {
     padding: 12,
   },
   showItem: {
     color: "#F0FFCE",
     textTransform: "capitalize",
-    marginTop: 5,
+    marginTop: 8,
+    borderBottomWidth: 1,
+    borderColor: "#F0FFCE",
   },
 });
