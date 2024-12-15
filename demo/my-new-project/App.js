@@ -5,6 +5,14 @@ export default function App() {
   const [text, setText] = useState("");
   const [arr, setArr] = useState([]);
 
+  const handleDelete = (id) => {
+    setArr((prev) => {
+      return prev.filter((item, index) => {
+        return index !== id;
+      });
+    });
+  };
+
   const handleChange = (e) => {
     setText(e);
   };
@@ -14,6 +22,14 @@ export default function App() {
       return [...prev, text];
     });
     setText("");
+  };
+
+  const ShowArrItem = ({ listItem, id }) => {
+    return (
+      <Text style={styles.showItem} onPress={() => handleDelete(id)}>
+        {listItem}
+      </Text>
+    );
   };
 
   return (
@@ -33,16 +49,9 @@ export default function App() {
       </View>
       <View style={{ marginTop: 20 }}>
         {arr.map((item, index) => (
-          <Text
-            key={index}
-            style={{
-              color: "#F0FFCE",
-              textTransform: "capitalize",
-              marginTop: 5,
-            }}
-          >
-            {item}
-          </Text>
+          <View key={index}>
+            <ShowArrItem listItem={item} id={index} />
+          </View>
         ))}
       </View>
     </View>
@@ -72,5 +81,10 @@ const styles = StyleSheet.create({
   },
   buttonItems: {
     padding: 12,
+  },
+  showItem: {
+    color: "#F0FFCE",
+    textTransform: "capitalize",
+    marginTop: 5,
   },
 });
