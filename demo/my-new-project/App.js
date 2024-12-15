@@ -3,14 +3,17 @@ import { useState } from "react";
 
 export default function App() {
   const [text, setText] = useState("");
-  const [arr, setArr] = useState(["apple", "tea", "milk", "coffee"]);
+  const [arr, setArr] = useState([]);
 
   const handleChange = (e) => {
     setText(e);
   };
 
   const handlePress = () => {
-    alert(text);
+    setArr((prev) => {
+      return [...prev, text];
+    });
+    setText("");
   };
 
   return (
@@ -20,6 +23,7 @@ export default function App() {
           style={styles.textInputField}
           placeholder="Add your goal"
           onChangeText={handleChange}
+          value={text}
         />
         <Button
           style={styles.buttonItems}
