@@ -36,19 +36,22 @@ export default function App() {
 const styles = StyleSheet.create({
   appContainer: {
     padding: 40,
-    marginTop: 40,
     flex: 1,
+    backgroundColor: "black",
+    color: "white",
   },
   textInputContainer: {
+    marginTop: 40,
     flexDirection: "row",
     justifyContent: "space-evenly",
   },
   textInputField: {
-    borderColor: "black",
+    borderColor: "white",
     borderWidth: 2,
     borderRadius: 5,
     paddingLeft: 12,
     width: "80%",
+    color: "white",
   },
   buttonItems: {
     padding: 12,
