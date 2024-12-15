@@ -3,6 +3,7 @@ import { useState } from "react";
 
 export default function App() {
   const [text, setText] = useState("");
+  const [arr, setArr] = useState(["apple", "tea", "milk", "coffee"]);
 
   const handleChange = (e) => {
     setText(e);
@@ -27,7 +28,18 @@ export default function App() {
         />
       </View>
       <View style={{ marginTop: 20 }}>
-        <Text>List of goals...</Text>
+        {arr.map((item, index) => (
+          <Text
+            key={index}
+            style={{
+              color: "#F0FFCE",
+              textTransform: "capitalize",
+              marginTop: 5,
+            }}
+          >
+            {item}
+          </Text>
+        ))}
       </View>
     </View>
   );
@@ -37,8 +49,8 @@ const styles = StyleSheet.create({
   appContainer: {
     padding: 40,
     flex: 1,
-    backgroundColor: "black",
-    color: "white",
+    backgroundColor: "#1B1B1E",
+    color: "#F0FFCE",
   },
   textInputContainer: {
     marginTop: 40,
@@ -46,12 +58,12 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
   },
   textInputField: {
-    borderColor: "white",
+    borderColor: "#F0FFCE",
     borderWidth: 2,
     borderRadius: 5,
     paddingLeft: 12,
     width: "80%",
-    color: "white",
+    color: "#F0FFCE",
   },
   buttonItems: {
     padding: 12,
