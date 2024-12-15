@@ -64,7 +64,8 @@ const styles = StyleSheet.create({
   textInputField: {
     borderColor: "#F0FFCE",
     borderWidth: 2,
-    borderRadius: 5,
+    borderBottomLeftRadius: 5,
+    borderTopLeftRadius: 5,
     paddingLeft: 12,
     width: "80%",
     color: "#F0FFCE",
