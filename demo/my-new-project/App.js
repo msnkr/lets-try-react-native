@@ -48,7 +48,7 @@ export default function App() {
         />
         <Button title="Add Goal" onPress={handlePress}></Button>
       </View>
-      <ScrollView>
+      <ScrollView alwaysBounceVertical={true}>
         <View>
           {arr.map((goal, index) => (
             <View key={index}>
