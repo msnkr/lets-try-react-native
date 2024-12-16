@@ -36,21 +36,15 @@ export default function App() {
     <View style={styles.appContainer}>
       <View style={styles.textInputContainer}>
         <TextInput
-          style={styles.textInputField}
+          style={styles.textInputComponent}
           placeholder="Add your goal"
-          onChangeText={handleChange}
-          value={text}
         />
-        <Button
-          style={styles.buttonItems}
-          title="Add Goal"
-          onPress={handlePress}
-        />
+        <Button title="Add Goal" onPress={handlePress}></Button>
       </View>
-      <View style={styles.goalContainer}>
-        {arr.map((item, index) => (
-          <View key={index}>
-            <ShowArrItem listItem={item} id={index} />
+      <View>
+        {arr.map((goal, index) => (
+          <View>
+            <ShowArrItem listItem={goal} id={index} />
           </View>
         ))}
       </View>
@@ -62,34 +56,16 @@ const styles = StyleSheet.create({
   appContainer: {
     padding: 40,
     flex: 1,
-    backgroundColor: "#1B1B1E",
-    color: "#F0FFCE",
   },
   textInputContainer: {
-    marginTop: 40,
     flexDirection: "row",
-    justifyContent: "space-evenly",
+    justifyContent: "space-around",
+    borderBottomWidth: 2,
+    paddingBottom: 20,
   },
-  textInputField: {
-    borderColor: "#F0FFCE",
+  textInputComponent: {
+    width: "70%",
     borderWidth: 2,
-    borderBottomLeftRadius: 5,
-    borderTopLeftRadius: 5,
-    paddingLeft: 12,
-    width: "80%",
-    color: "#F0FFCE",
-  },
-  goalContainer: {
-    marginTop: 20,
-  },
-  buttonItems: {
-    padding: 12,
-  },
-  showItem: {
-    color: "#F0FFCE",
-    textTransform: "capitalize",
-    marginTop: 8,
-    borderBottomWidth: 1,
-    borderColor: "#F0FFCE",
+    paddingLeft: 5,
   },
 });
