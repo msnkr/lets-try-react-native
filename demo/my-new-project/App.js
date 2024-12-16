@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, Button, TextInput } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  TextInput,
+  ScrollView,
+} from "react-native";
 import { useState } from "react";
 
 export default function App() {
@@ -21,7 +28,6 @@ export default function App() {
     setArr((prev) => {
       return [...prev, text];
     });
-    setText("");
   };
 
   const ShowArrItem = ({ listItem, id }) => {
@@ -38,22 +44,26 @@ export default function App() {
         <TextInput
           style={styles.textInputComponent}
           placeholder="Add your goal"
+          onChangeText={handleChange}
         />
         <Button title="Add Goal" onPress={handlePress}></Button>
       </View>
-      <View>
-        {arr.map((goal, index) => (
-          <View>
-            <ShowArrItem listItem={goal} id={index} />
-          </View>
-        ))}
-      </View>
+      <ScrollView>
+        <View>
+          {arr.map((goal, index) => (
+            <View key={index}>
+              <ShowArrItem listItem={goal} id={index} />
+            </View>
+          ))}
+        </View>
+      </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   appContainer: {
+    marginTop: 20,
     padding: 40,
     flex: 1,
   },
@@ -67,5 +77,11 @@ const styles = StyleSheet.create({
     width: "70%",
     borderWidth: 2,
     paddingLeft: 5,
+  },
+  showItem: {
+    marginTop: 18,
+    paddingLeft: 20,
+    textTransform: "capitalize",
+    fontSize: 18,
   },
 });
