@@ -1,12 +1,12 @@
 import React from "react";
 import { StyleSheet, View, ImageBackground } from "react-native";
 
-import randomImage from "./components/randomImage";
+import RandomImage from "./components/RandomImage";
 import RandomMessage from "./components/RandomMessage";
 
 export default function App() {
   return (
-    <ImageBackground source={randomImage()} style={styles.backgroundImage}>
+    <ImageBackground source={RandomImage()} style={styles.backgroundImage}>
       <View style={styles.appContainer}>
         <RandomMessage />
       </View>
@@ -17,8 +17,6 @@ export default function App() {
 const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
-    resizeMode: "cover",
-    justifyContent: "center",
   },
   appContainer: {
     flex: 1,
