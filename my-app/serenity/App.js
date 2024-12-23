@@ -1,17 +1,30 @@
-import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { StyleSheet, Text, View, ImageBackground } from "react-native";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <ImageBackground
+      source={{
+        uri: "https://images.pexels.com/photos/167684/pexels-photo-167684.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      }}
+      style={styles.backgroundImage}
+    >
+      <View style={styles.appContainer}>
+        <Text>Open up App.js to start working on your app!</Text>
+      </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  backgroundImage: {
     flex: 1,
-    backgroundColor: "red",
+    resizeMode: "cover",
+    justifyContent: "center",
+  },
+  appContainer: {
+    flex: 1,
+    backgroundColor: "rgba(255, 255, 255, 0.5)", // Optional: to add a semi-transparent background
     alignItems: "center",
     justifyContent: "center",
   },
