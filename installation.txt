@@ -3,4 +3,4 @@
 3 - cd my-new-project
 4 - npm install --save-dev @expo/metro-runtime
 5 - Modify the index.js import "@expo/metro-runtime";
-6 - expo start --web
+6 - npx expo start --web
