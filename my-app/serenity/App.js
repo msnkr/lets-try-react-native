@@ -1,27 +1,25 @@
 import React from "react";
 import { StyleSheet, View, ImageBackground } from "react-native";
 
-import RandomImage from "./components/RandomImage";
-import RandomMessage from "./components/RandomMessage";
+import image from "./assets/1.jpg";
 
 export default function App() {
   return (
-    <ImageBackground source={RandomImage()} style={styles.backgroundImage}>
-      <View style={styles.appContainer}>
-        <RandomMessage />
-      </View>
-    </ImageBackground>
+    <View style={styles.container}>
+      <ImageBackground
+        style={styles.background}
+        source={image}
+      ></ImageBackground>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  backgroundImage: {
+  container: {
     flex: 1,
   },
-  appContainer: {
-    flex: 1,
-    backgroundColor: "rgba(0, 0, 0, 0.1)", // Optional: to add a semi-transparent background
-    alignItems: "center",
-    justifyContent: "center",
+  background: {
+    width: "100%",
+    height: "100%",
   },
 });
