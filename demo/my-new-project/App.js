@@ -6,10 +6,23 @@ import { useState } from "react";
 
 export default function App() {
   const [value, setValue] = useState("");
-  const [items, setItems] = useState(["milk", "bread", "eggs"]);
+  const [items, setItems] = useState([]);
 
   const handleChange = (e) => {
-    console.log(e);
+    setValue(e);
+  };
+
+  const handlePress = () => {
+    setItems([...items, value]);
+    setValue("");
+  };
+
+  const handleDelete = (index) => {
+    setItems((prev) => {
+      return prev.filter((item, i) => {
+        return i !== index;
+      });
+    });
   };
 
   return (
@@ -17,14 +30,19 @@ export default function App() {
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.inputElement}
-          placeholder="Enter your name"
+          placeholder="Enter todo"
           onChangeText={handleChange}
+          value={value}
         />
-        <Button title="Submit" />
+        <Button title="Submit" onPress={handlePress} />
       </View>
       <View style={styles.itemContainer}>
         {items.map((item, index) => (
-          <li key={index} style={styles.listItems}>
+          <li
+            key={index}
+            style={styles.listItems}
+            onClick={() => handleDelete(index)}
+          >
             {item}
           </li>
         ))}
@@ -52,11 +70,10 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   itemContainer: {
-    flex: 5,
+    flex: 2,
     alignItems: "center",
   },
   listItems: {
-    padding: 10,
     margin: 5,
     textTransform: "capitalize",
     fontSize: 18,
