@@ -1,11 +1,13 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
+import "@expo/metro-runtime";
+import { registerRootComponent } from "expo";
+registerRootComponent(App);
 
 export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.textStyle}>Hello, World!</Text>
-      <Text style={styles.textStyle}>Nope</Text>
       <StatusBar style="auto" />
     </View>
   );

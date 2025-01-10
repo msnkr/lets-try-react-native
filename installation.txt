@@ -1,0 +1,16 @@
+1 - npm install -g expo-cli
+2 - expo init my-new-project
+3 - cd my-new-project
+4 - npm install --save-dev @expo/metro-runtime
+5 - Modify the index.js
+import "@expo/metro-runtime";
+
+import { registerRootComponent } from "expo";
+import App from "./App";
+
+// registerRootComponent calls AppRegistry.registerComponent('main', () => App);
+// It also ensures that whether you load the app in Expo Go or in a native build,
+// the environment is set up appropriately
+registerRootComponent(App);
+
+6 - expo start --web
