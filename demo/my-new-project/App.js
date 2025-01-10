@@ -38,13 +38,13 @@ export default function App() {
       </View>
       <View style={styles.itemContainer}>
         {items.map((item, index) => (
-          <li
+          <Text
             key={index}
             style={styles.listItems}
-            onClick={() => handleDelete(index)}
+            onPress={() => handleDelete(index)}
           >
             {item}
-          </li>
+          </Text>
         ))}
       </View>
       <StatusBar style="auto" />
@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   inputElement: {
+    width: "60%",
     borderWidth: 2,
     borderColor: "blue",
     height: 36,
