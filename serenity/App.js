@@ -10,7 +10,12 @@ export default function App() {
     const newData = data.data.quotes;
     const randomIndex = Math.floor(Math.random() * newData.length);
 
-    return <Text style={{ color: "white" }}>{newData[randomIndex].quote}</Text>;
+    return (
+      <View>
+        <Text style={styles.quoteItem}>"{newData[randomIndex].quote}"</Text>
+        <Text style={styles.quoteItem}>{newData[randomIndex].author}</Text>
+      </View>
+    );
   };
 
   return (
@@ -28,5 +33,13 @@ const styles = StyleSheet.create({
     height: "100%",
     justifyContent: "center",
     alignItems: "center",
+  },
+  quoteItem: {
+    color: "white",
+    fontSize: 20,
+    textAlign: "center",
+    padding: 10,
+    backgroundColor: "rgba(0,0,0,0.5)",
+    fontStyle: "italic",
   },
 });
