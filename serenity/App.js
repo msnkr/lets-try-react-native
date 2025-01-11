@@ -13,7 +13,7 @@ export default function App() {
     return (
       <View>
         <Text style={styles.quoteItem}>"{newData[randomIndex].quote}"</Text>
-        <Text style={styles.quoteItem}>{newData[randomIndex].author}</Text>
+        <Text style={styles.quoteItem}> -{newData[randomIndex].author}</Text>
       </View>
     );
   };
@@ -38,7 +38,8 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 20,
     textAlign: "center",
-    padding: 10,
+    paddingHorizontal: 40,
+    paddingVertical: 20,
     backgroundColor: "rgba(0,0,0,0.5)",
     fontStyle: "italic",
   },
