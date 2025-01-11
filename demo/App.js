@@ -54,7 +54,7 @@ export default function App() {
             key={index}
             onPress={() => handleDelete(index)}
           >
-            {todo}
+            {index + 1}: {todo}
           </Text>
         ))}
       </ScrollView>
@@ -82,10 +82,10 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   textItem: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: "semibold",
     textTransform: "capitalize",
     paddingVertical: 12,
-    color: "#778da9",
+    color: "#9BAFD9",
   },
 });
