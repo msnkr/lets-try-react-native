@@ -12,7 +12,7 @@ import "@expo/metro-runtime";
 
 export default function App() {
   const [currentTodo, setCurrentTodo] = useState("");
-  const [todos, setTodos] = useState(["todo1", "todo2", "todo3", "todo4"]);
+  const [todos, setTodos] = useState([]);
 
   const handleChange = (text) => {
     setCurrentTodo(text);
@@ -22,19 +22,38 @@ export default function App() {
     setTodos([...todos, currentTodo]);
   };
 
+  const handleDelete = (index) => {
+    setTodos((prevTodos) => {
+      return prevTodos.filter((todo, i) => i !== index);
+    });
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.textInputContainer}>
         <TextInput
-          style={{ width: "60%", paddingHorizontal: 12, borderWidth: 1 }}
+          style={{
+            width: "60%",
+            paddingHorizontal: 12,
+            borderWidth: 1,
+            borderColor: "#415a77",
+            color: "#778da9",
+          }}
           onChangeText={handleChange}
           placeholder="Add todo"
         />
         <Button title="Add" onPress={handlePress} />
       </View>
-      <ScrollView style={styles.goalsContainer}>
+      <ScrollView
+        style={styles.goalsContainer}
+        showsVerticalScrollIndicator={false}
+      >
         {todos.map((todo, index) => (
-          <Text style={styles.textItem} key={index}>
+          <Text
+            style={styles.textItem}
+            key={index}
+            onPress={() => handleDelete(index)}
+          >
             {todo}
           </Text>
         ))}
@@ -46,15 +65,16 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 20,
+    paddingTop: 80,
     flex: 1,
+    backgroundColor: "#0d1b2a",
   },
   textInputContainer: {
     flexDirection: "row",
     justifyContent: "center",
     paddingBottom: 24,
     borderBottomWidth: 1,
-    borderBottomColor: "black",
+    borderBottomColor: "#415a77",
   },
   goalsContainer: {
     paddingTop: 20,
@@ -66,5 +86,6 @@ const styles = StyleSheet.create({
     fontWeight: "semibold",
     textTransform: "capitalize",
     paddingVertical: 12,
+    color: "#778da9",
   },
 });
