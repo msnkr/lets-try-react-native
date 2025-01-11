@@ -13,6 +13,7 @@ import "@expo/metro-runtime";
 export default function App() {
   const [currentTodo, setCurrentTodo] = useState("");
   const [todos, setTodos] = useState([]);
+  const [isCompleted, setIsCompleted] = useState(false);
 
   const handleChange = (text) => {
     setCurrentTodo(text);
@@ -20,6 +21,7 @@ export default function App() {
 
   const handlePress = () => {
     setTodos([...todos, currentTodo]);
+    setCurrentTodo("");
   };
 
   const handleDelete = (index) => {
@@ -41,6 +43,7 @@ export default function App() {
           }}
           onChangeText={handleChange}
           placeholder="Add todo"
+          value={currentTodo}
         />
         <Button title="Add" onPress={handlePress} />
       </View>
@@ -52,7 +55,7 @@ export default function App() {
           <Text
             style={styles.textItem}
             key={index}
-            onPress={() => handleDelete(index)}
+            onLongPress={() => handleDelete(index)}
           >
             {index + 1}: {todo}
           </Text>
@@ -73,7 +76,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     paddingBottom: 24,
-    borderBottomWidth: 1,
+    borderBottomWidth: 2,
     borderBottomColor: "#415a77",
   },
   goalsContainer: {
