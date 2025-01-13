@@ -13,7 +13,7 @@ import "@expo/metro-runtime";
 
 export default function App() {
   const [addTodo, setAddTodo] = useState("");
-  const [todos, setTodos] = useState(["todo1", "todo2", "todo3"]);
+  const [todos, setTodos] = useState([]);
 
   const handleChange = (e) => {
     setAddTodo(e);
