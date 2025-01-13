@@ -16,9 +16,9 @@ export default function App() {
   const [todos, setTodos] = useState([]);
 
   const handleDelete = (index) => {
-    setTodos((prevTodo) => {
-      prevTodo.filter((item, i) => {
-        return item !== i;
+    setTodos((prev) => {
+      return prev.filter((item, i) => {
+        return index !== i;
       });
     });
   };
@@ -29,7 +29,6 @@ export default function App() {
 
   const handlePress = () => {
     setTodos([...todos, addTodo]);
-    setAddTodo("");
   };
 
   return (
@@ -43,27 +42,23 @@ export default function App() {
         />
         <Button title="Add" onPress={handlePress} />
       </View>
-      <ScrollView
-        style={styles.todoContainer}
-        showsHorizontalScrollIndicator={false}
-      >
-        <View>
-          <FlatList
-            style={styles.flatListContainer}
-            data={todos}
-            renderItem={(todo) => {
-              return (
-                <Text
-                  onPress={() => handleDelete(todo.index)}
-                  style={styles.todoItem}
-                >
-                  {todo.index + 1}: {todo.item}
-                </Text>
-              );
-            }}
-          />
-        </View>
-      </ScrollView>
+
+      <View style={styles.todoContainer}>
+        <FlatList
+          style={styles.flatListContainer}
+          data={todos}
+          renderItem={(todo) => {
+            return (
+              <Text
+                onPress={() => handleDelete(todo.index)}
+                style={styles.todoItem}
+              >
+                {todo.index + 1}: {todo.item}
+              </Text>
+            );
+          }}
+        />
+      </View>
       <StatusBar style="auto" />
     </View>
   );
@@ -71,7 +66,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 50,
+    marginTop: 100,
     flex: 1,
   },
   inputContainer: {
@@ -79,18 +74,22 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderBottomWidth: 2,
     paddingBottom: 20,
+    borderBottomColor: "#484141",
   },
   inputText: {
+    color: "#484141",
     width: "60%",
     paddingHorizontal: 12,
     borderWidth: 2,
+    borderColor: "#484141",
   },
   todoContainer: {
-    flex: 5,
+    flex: 6,
     paddingTop: 40,
+    paddingHorizontal: 50,
   },
   todoItem: {
-    backgroundColor: "black",
+    backgroundColor: "#484141",
     color: "white",
     paddingLeft: 80,
     fontSize: 22,
