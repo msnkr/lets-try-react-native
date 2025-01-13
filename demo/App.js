@@ -15,12 +15,21 @@ export default function App() {
   const [addTodo, setAddTodo] = useState("");
   const [todos, setTodos] = useState([]);
 
+  const handleDelete = (index) => {
+    setTodos((prevTodo) => {
+      prevTodo.filter((item, i) => {
+        return item !== i;
+      });
+    });
+  };
+
   const handleChange = (e) => {
     setAddTodo(e);
   };
 
   const handlePress = () => {
     setTodos([...todos, addTodo]);
+    setAddTodo("");
   };
 
   return (
@@ -30,6 +39,7 @@ export default function App() {
           style={styles.inputText}
           placeholder="Add todo"
           onChangeText={handleChange}
+          value={addTodo}
         />
         <Button title="Add" onPress={handlePress} />
       </View>
@@ -42,7 +52,14 @@ export default function App() {
             style={styles.flatListContainer}
             data={todos}
             renderItem={(todo) => {
-              return <Text style={styles.todoItem}>{todo.item}</Text>;
+              return (
+                <Text
+                  onPress={() => handleDelete(todo.index)}
+                  style={styles.todoItem}
+                >
+                  {todo.index + 1}: {todo.item}
+                </Text>
+              );
             }}
           />
         </View>
