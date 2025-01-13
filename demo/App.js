@@ -66,14 +66,14 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 100,
+    marginTop: 60,
     flex: 1,
   },
   inputContainer: {
     flexDirection: "row",
     justifyContent: "center",
     borderBottomWidth: 2,
-    paddingBottom: 20,
+    paddingBottom: 60,
     borderBottomColor: "#484141",
   },
   inputText: {
