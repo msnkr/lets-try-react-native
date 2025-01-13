@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import "@expo/metro-runtime";
 
-import image from "./assets/1.jpg";
+import imageArr from "./data/imageData";
 import data from "./data/motivationData.json";
 
 export default function App() {
@@ -19,7 +19,7 @@ export default function App() {
   };
 
   return (
-    <ImageBackground source={image} style={styles.image}>
+    <ImageBackground source={imageArr[5]} style={styles.image}>
       <RandomQuote data={data} />
       <StatusBar style="auto" />
     </ImageBackground>
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 20,
     textAlign: "center",
-    paddingHorizontal: 40,
+    paddingHorizontal: 80,
     paddingVertical: 20,
     backgroundColor: "rgba(0,0,0,0.5)",
     fontStyle: "italic",
