@@ -1,84 +1,34 @@
 {
-    "quotes": [
-        {
-            "author": "Walt Disney",
-            "quote": "The way to get started is to quit talking and begin doing."
-        },
-        {
-            "author": "Winston Churchill",
-            "quote": "The pessimist sees difficulty in every opportunity. The optimist sees opportunity in every difficulty."
-        },
-        {
-            "author": "Will Rogers",
-            "quote": "Don't let yesterday take up too much of today."
-        },
-        {
-            "author": "Vince Lombardi",
-            "quote": "It's not whether you get knocked down, it's whether you get up."
-        },
-        {
-            "author": "Steve Jobs",
-            "quote": "Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work."
-        },
-        {
-            "author": "Albert Einstein",
-            "quote": "Strive not to be a success, but rather to be of value."
-        },
-        {
-            "author": "Robert H. Schuller",
-            "quote": "Tough times never last, but tough people do."
-        },
-        {
-            "author": "Maya Angelou",
-            "quote": "You will face many defeats in life, but never let yourself be defeated."
-        },
-        {
-            "author": "Zig Ziglar",
-            "quote": "People often say that motivation doesn't last. Well, neither does bathing – that's why we recommend it daily."
-        },
-        {
-            "author": "Helen Keller",
-            "quote": "Optimism is the faith that leads to achievement. Nothing can be done without hope and confidence."
-        },
-        {
-            "author": "Confucius",
-            "quote": "It does not matter how slowly you go as long as you do not stop."
-        },
-        {
-            "author": "Eleanor Roosevelt",
-            "quote": "The future belongs to those who believe in the beauty of their dreams."
-        },
-        {
-            "author": "Michael Jordan",
-            "quote": "I've missed more than 9000 shots in my career. I've lost almost 300 games. 26 times, I've been trusted to take the game winning shot and missed. I've failed over and over and over again in my life. And that is why I succeed."
-        },
-        {
-            "author": "John D. Rockefeller",
-            "quote": "Don't be afraid to give up the good to go for the great."
-        },
-        {
-            "author": "Jim Rohn",
-            "quote": "Either you run the day, or the day runs you."
-        },
-        {
-            "author": "Henry Ford",
-            "quote": "Whether you think you can or you think you can't, you're right."
-        },
-        {
-            "author": "Franklin D. Roosevelt",
-            "quote": "The only limit to our realization of tomorrow is our doubts of today."
-        },
-        {
-            "author": "Tony Robbins",
-            "quote": "The only impossible journey is the one you never begin."
-        },
-        {
-            "author": "Nelson Mandela",
-            "quote": "It always seems impossible until it's done."
-        },
-        {
-            "author": "Amelia Earhart",
-            "quote": "The most difficult thing is the decision to act, the rest is merely tenacity."
-        }
+    "affirmations": [
+      "I am confident and capable.",
+      "I believe in myself and my abilities.",
+      "I am worthy of love and respect.",
+      "I am in control of my thoughts and emotions.",
+      "I am grateful for the positive things in my life.",
+      "I am constantly growing and improving.",
+      "I am deserving of success and happiness.",
+      "I am strong and resilient.",
+      "I am surrounded by love and support.",
+      "I am at peace with who I am.",
+      "I am proud of my achievements.",
+      "I am a positive thinker.",
+      "I am healthy and full of energy.",
+      "I am open to new opportunities.",
+      "I am kind and compassionate.",
+      "I am a good person.",
+      "I am worthy of all the good things that happen to me.",
+      "I am in charge of my own happiness.",
+      "I am a unique and valuable person.",
+      "I am capable of achieving my goals.",
+      "I am deserving of all the good things life has to offer.",
+      "I am confident in my abilities.",
+      "I am a positive influence on others.",
+      "I am grateful for the abundance in my life.",
+      "I am worthy of all the love and joy in the world.",
+      "I am in control of my own destiny.",
+      "I am a loving and caring person.",
+      "I am proud of who I am becoming.",
+      "I am a source of inspiration for others.",
+      "I am at peace with my past and excited for my future."
     ]
-}
+  }

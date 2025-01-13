@@ -7,19 +7,21 @@ import data from "./data/motivationData.json";
 
 export default function App() {
   const RandomQuote = (data) => {
-    const newData = data.data.quotes;
+    const newData = data.data.affirmations;
     const randomIndex = Math.floor(Math.random() * newData.length);
 
     return (
       <View>
-        <Text style={styles.quoteItem}>"{newData[randomIndex].quote}"</Text>
-        <Text style={styles.quoteItem}> -{newData[randomIndex].author}</Text>
+        <Text style={styles.quoteItem}>{newData[randomIndex]}</Text>
       </View>
     );
   };
 
   return (
-    <ImageBackground source={imageArr[5]} style={styles.image}>
+    <ImageBackground
+      source={imageArr[Math.floor(Math.random() * imageArr.length)]}
+      style={styles.image}
+    >
       <RandomQuote data={data} />
       <StatusBar style="auto" />
     </ImageBackground>
@@ -36,11 +38,12 @@ const styles = StyleSheet.create({
   },
   quoteItem: {
     color: "white",
-    fontSize: 20,
+    fontSize: 26,
     textAlign: "center",
     paddingHorizontal: 80,
     paddingVertical: 20,
     backgroundColor: "rgba(0,0,0,0.5)",
     fontStyle: "italic",
+    fontWeight: "semibold",
   },
 });
