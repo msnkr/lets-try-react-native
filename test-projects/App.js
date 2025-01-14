@@ -14,11 +14,7 @@ export default function App() {
         <FlatList
           data={data}
           renderItem={(item) => {
-            return (
-              <Text>
-                {item.item.name}: {item.item.primaryMuscles}
-              </Text>
-            );
+            return;
           }}
         />
       </ScrollView>
