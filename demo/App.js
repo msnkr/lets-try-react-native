@@ -1,12 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  Button,
-  FlatList,
-} from "react-native";
+import { StyleSheet, View, FlatList } from "react-native";
 import { useState } from "react";
 import "@expo/metro-runtime";
 
@@ -31,6 +24,7 @@ export default function App() {
 
   const handlePress = () => {
     setTodos([...todos, addTodo]);
+    setAddTodo("");
   };
 
   return (
@@ -38,7 +32,7 @@ export default function App() {
       <AddTodo
         textChanged={handleChange}
         buttonPressed={handlePress}
-        value={addTodo}
+        valueItem={addTodo}
       />
       <View style={styles.todoContainer}>
         <FlatList
