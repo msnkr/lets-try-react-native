@@ -1,11 +1,15 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, FlatList } from "react-native";
 import "@expo/metro-runtime";
+
+import data from "./data/fitnessData.json";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <View>
+        <Text style={styles.headerText}>Welcome to app</Text>
+      </View>
       <StatusBar style="auto" />
     </View>
   );
@@ -14,8 +18,12 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    marginTop: 100,
     alignItems: "center",
-    justifyContent: "center",
+  },
+  headerText: {
+    fontSize: 32,
+    fontWeight: "bold",
+    textTransform: "uppercase",
   },
 });
