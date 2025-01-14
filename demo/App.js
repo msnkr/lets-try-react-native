@@ -5,11 +5,12 @@ import {
   View,
   TextInput,
   Button,
-  ScrollView,
   FlatList,
 } from "react-native";
 import { useState } from "react";
 import "@expo/metro-runtime";
+
+import ShowTodo from "./components/ShowTodo";
 
 export default function App() {
   const [addTodo, setAddTodo] = useState("");
@@ -48,14 +49,7 @@ export default function App() {
           style={styles.flatListContainer}
           data={todos}
           renderItem={(todo) => {
-            return (
-              <Text
-                onPress={() => handleDelete(todo.index)}
-                style={styles.todoItem}
-              >
-                {todo.index + 1}: {todo.item}
-              </Text>
-            );
+            return <ShowTodo text={todo} done={handleDelete} />;
           }}
         />
       </View>
@@ -66,14 +60,14 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 100,
+    marginTop: 60,
     flex: 1,
   },
   inputContainer: {
     flexDirection: "row",
     justifyContent: "center",
     borderBottomWidth: 2,
-    paddingBottom: 20,
+    paddingBottom: 60,
     borderBottomColor: "#484141",
   },
   inputText: {
@@ -87,15 +81,5 @@ const styles = StyleSheet.create({
     flex: 6,
     paddingTop: 40,
     paddingHorizontal: 50,
-  },
-  todoItem: {
-    backgroundColor: "#484141",
-    color: "white",
-    paddingLeft: 80,
-    fontSize: 22,
-    textTransform: "capitalize",
-    margin: 4,
-    borderRadius: 8,
-    padding: 4,
   },
 });
