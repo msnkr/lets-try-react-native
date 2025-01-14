@@ -11,6 +11,7 @@ import { useState } from "react";
 import "@expo/metro-runtime";
 
 import ShowTodo from "./components/ShowTodo";
+import AddTodo from "./components/AddTodo";
 
 export default function App() {
   const [addTodo, setAddTodo] = useState("");
@@ -34,22 +35,19 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.inputText}
-          placeholder="Add todo"
-          onChangeText={handleChange}
-          value={addTodo}
-        />
-        <Button title="Add" onPress={handlePress} />
-      </View>
-
+      <AddTodo
+        textChanged={handleChange}
+        buttonPressed={handlePress}
+        value={addTodo}
+      />
       <View style={styles.todoContainer}>
         <FlatList
           style={styles.flatListContainer}
           data={todos}
           renderItem={(todo) => {
-            return <ShowTodo text={todo} done={handleDelete} />;
+            return (
+              <ShowTodo text={todo} done={handleDelete} valueItem={addTodo} />
+            );
           }}
         />
       </View>
@@ -63,20 +61,7 @@ const styles = StyleSheet.create({
     marginTop: 60,
     flex: 1,
   },
-  inputContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    borderBottomWidth: 2,
-    paddingBottom: 60,
-    borderBottomColor: "#484141",
-  },
-  inputText: {
-    color: "#484141",
-    width: "60%",
-    paddingHorizontal: 12,
-    borderWidth: 2,
-    borderColor: "#484141",
-  },
+
   todoContainer: {
     flex: 6,
     paddingTop: 40,
