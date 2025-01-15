@@ -6,6 +6,8 @@ import {
   TextInput,
   Button,
   FlatList,
+  Modal,
+  Pressable,
 } from "react-native";
 import "@expo/metro-runtime";
 
@@ -20,6 +22,14 @@ export default function App() {
     "todo2",
     "todo3",
   ]);
+
+  const handleDelete = (index) => {
+    setAddTodo((prevTodo) => {
+      return prevTodo.filter((item, i) => {
+        return i !== index;
+      });
+    });
+  };
   return (
     <View style={styles.appContainer}>
       <View style={styles.textInputContainer}>
@@ -32,9 +42,11 @@ export default function App() {
           renderItem={(item) => {
             return (
               <View style={styles.textItemContainer}>
-                <Text style={styles.textItem}>
-                  {item.index + 1}: {item.item}
-                </Text>
+                <Pressable onPress={() => handleDelete(item.index)}>
+                  <Text style={styles.textItem}>
+                    {item.index + 1}: {item.item}
+                  </Text>
+                </Pressable>
               </View>
             );
           }}
