@@ -30,7 +30,13 @@ export default function App() {
         <FlatList
           data={addTodo}
           renderItem={(item) => {
-            return <Text style={styles.textItem}>{item.item}</Text>;
+            return (
+              <View style={styles.textItemContainer}>
+                <Text style={styles.textItem}>
+                  {item.index + 1}: {item.item}
+                </Text>
+              </View>
+            );
           }}
         />
       </View>
@@ -52,14 +58,23 @@ const styles = StyleSheet.create({
   },
   textInputComponent: {
     width: "60%",
+    borderWidth: 1,
+    borderColor: "black",
+    paddingLeft: 10,
   },
   todoListContainer: {
     flex: 5,
-    justifyContent: "center",
-    alignItems: "center",
     paddingTop: 50,
   },
+  textItemContainer: {
+    backgroundColor: "black",
+    marginTop: 12,
+  },
   textItem: {
-    fontSize: 24,
+    fontSize: 20,
+    textTransform: "capitalize",
+    color: "white",
+    padding: 12,
+    paddingLeft: 50,
   },
 });
