@@ -24,7 +24,7 @@ export default function App() {
     <View style={styles.appContainer}>
       <View style={styles.textInputContainer}>
         <TextInput style={styles.textInputComponent} placeholder="Add todo" />
-        <Button title="Add" />
+        <Button title="Add Todo" />
       </View>
       <View style={styles.todoListContainer}>
         <FlatList
@@ -46,10 +46,9 @@ const styles = StyleSheet.create({
   },
   textInputContainer: {
     flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
     borderBottomWidth: 2,
     paddingBottom: 50,
+    justifyContent: "center",
   },
   textInputComponent: {
     width: "60%",
