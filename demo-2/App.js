@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, FlatList, Pressable } from "react-native";
 import "@expo/metro-runtime";
-import { addInput } from "./components/addInput";
+import addInputComponent from "./components/addInputComponent";
 
 import { useState } from "react";
 export default function App() {
@@ -23,9 +23,7 @@ export default function App() {
   };
   return (
     <View style={styles.appContainer}>
-      <View>
-        <addInput />
-      </View>
+      <addInputComponent />
       <View style={styles.todoListContainer}>
         <FlatList
           data={addTodo}
