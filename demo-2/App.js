@@ -3,8 +3,7 @@ import { StyleSheet, Text, View, FlatList, Pressable } from "react-native";
 import "@expo/metro-runtime";
 import { addInput } from "./components/addInput";
 
-import { use, useState } from "react";
-
+import { useState } from "react";
 export default function App() {
   const [addTodo, setAddTodo] = useState([
     "todo1",
@@ -24,7 +23,9 @@ export default function App() {
   };
   return (
     <View style={styles.appContainer}>
-      <addInput />
+      <View>
+        <addInput />
+      </View>
       <View style={styles.todoListContainer}>
         <FlatList
           data={addTodo}
