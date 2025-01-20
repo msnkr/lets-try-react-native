@@ -149,24 +149,12 @@ export default function App() {
   };
   return (
     <View style={styles.appContainer}>
-      <Modal visible={isVisible} animationType="fade">
-        <View
-          style={{
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: 200,
-          }}
-        >
-          <Text>Hello, World!</Text>
-        </View>
-
-        <Pressable style={styles.pressed} onPress={handlePress}>
-          <Text style={styles.pressedText}>Cancel Modal</Text>
+      <View style={styles.container}>
+        <Text style={styles.modalText}>Hello, World!</Text>
+        <Pressable style={styles.button}>
+          <Text style={styles.buttonText}>Show Modal</Text>
         </Pressable>
-      </Modal>
-      <Pressable style={styles.pressed} onPress={handlePress}>
-        <Text style={styles.pressedText}>Click Me</Text>
-      </Pressable>
+      </View>
     </View>
   );
 }
@@ -177,15 +165,23 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  pressed: {
-    marginTop: 20,
-    backgroundColor: "green",
-    padding: 12,
-    borderRadius: 10,
+  container: {
+    justifyContent: "center",
+    alignItems: "center",
   },
-  pressedText: {
-    color: "white",
+  modalText: {
     fontSize: 22,
+    fontWeight: "bold",
+  },
+  button: {
+    backgroundColor: "salmon",
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: 8,
+    marginTop: 20,
+  },
+  buttonText: {
+    color: "white",
     fontWeight: "bold",
   },
 });
