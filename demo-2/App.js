@@ -136,35 +136,108 @@
 //   },
 // });
 
-import { StyleSheet, Text, View, Modal, Pressable } from "react-native";
+// import { StyleSheet, Text, View, Modal, Pressable } from "react-native";
+// import "@expo/metro-runtime";
+// import { useState } from "react";
+
+// export default function App() {
+//   const [isVisible, setIsVisible] = useState(false);
+//   const handlePress = () => {
+//     setIsVisible((prev) => {
+//       return !prev;
+//     });
+//   };
+//   return (
+//     <View style={styles.appContainer}>
+//       <Modal
+//         visible={isVisible}
+//         style={styles.modalContainer}
+//         animationType="slide"
+//       >
+//         <View style={styles.container}>
+//           <Text style={styles.modalText}>lorem ipsum</Text>
+//           <Pressable style={styles.button} onPress={handlePress}>
+//             <Text style={styles.buttonText}>Dont Show Modal</Text>
+//           </Pressable>
+//         </View>
+//       </Modal>
+//       <View style={styles.container}>
+//         <Text style={styles.modalText}>Hello, World!</Text>
+//         <Pressable style={styles.button} onPress={handlePress}>
+//           <Text style={styles.buttonText}>Show Modal</Text>
+//         </Pressable>
+//       </View>
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   appContainer: {
+//     flex: 1,
+//     justifyContent: "center",
+//     alignItems: "center",
+//   },
+//   container: {
+//     flex: 1,
+//     justifyContent: "center",
+//     alignItems: "center",
+//   },
+//   modalText: {
+//     fontSize: 22,
+//     fontWeight: "bold",
+//   },
+//   button: {
+//     backgroundColor: "salmon",
+//     paddingVertical: 8,
+//     paddingHorizontal: 12,
+//     borderRadius: 8,
+//     marginTop: 20,
+//   },
+//   buttonText: {
+//     color: "white",
+//     fontWeight: "bold",
+//   },
+//   modalContainer: {
+//     marginTop: 100,
+//     flex: 1,
+//     justifyContent: "center",
+//     alignItems: "center",
+//   },
+// });
+
+import {
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  Pressable,
+  Modal,
+} from "react-native";
 import "@expo/metro-runtime";
 import { useState } from "react";
 
 export default function App() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+
   const handlePress = () => {
-    setIsVisible((prev) => {
+    setModalVisible((prev) => {
       return !prev;
     });
   };
+
   return (
     <View style={styles.appContainer}>
-      <Modal
-        visible={isVisible}
-        style={styles.modalContainer}
-        animationType="slide"
-      >
-        <View style={styles.container}>
-          <Text style={styles.modalText}>Hello, World!</Text>
-          <Pressable style={styles.button} onPress={handlePress}>
-            <Text style={styles.buttonText}>Dont Show Modal</Text>
+      <Modal visible={modalVisible} animationType="slide">
+        <View style={styles.textInputContainer}>
+          <TextInput style={styles.textInputComponent} placeholder="Add todo" />
+          <Pressable style={styles.buttonContainer} onPress={handlePress}>
+            <Text style={styles.buttonText}>Add</Text>
           </Pressable>
         </View>
       </Modal>
-      <View style={styles.container}>
-        <Text style={styles.modalText}>Hello, World!</Text>
-        <Pressable style={styles.button} onPress={handlePress}>
-          <Text style={styles.buttonText}>Show Modal</Text>
+      <View style={styles.goalsContainer}>
+        <Pressable style={styles.buttonContainer} onPress={handlePress}>
+          <Text style={styles.buttonText}>Add</Text>
         </Pressable>
       </View>
     </View>
@@ -177,30 +250,28 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  container: {
+  textInputContainer: {
+    flexDirection: "row",
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
-  modalText: {
-    fontSize: 22,
-    fontWeight: "bold",
+  textInputComponent: {
+    borderWidth: 1,
+    paddingHorizontal: 8,
+    width: "60%",
+    paddingVertical: 8,
   },
-  button: {
-    backgroundColor: "salmon",
+  buttonContainer: {
+    backgroundColor: "purple",
     paddingVertical: 8,
     paddingHorizontal: 12,
-    borderRadius: 8,
-    marginTop: 20,
   },
   buttonText: {
     color: "white",
-    fontWeight: "bold",
   },
-  modalContainer: {
+  goalsContainer: {
+    flex: 5,
     marginTop: 100,
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
   },
 });
