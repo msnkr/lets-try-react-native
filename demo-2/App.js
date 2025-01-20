@@ -235,7 +235,6 @@ export default function App() {
     setGoals((prevGoals) => {
       return [...prevGoals, changeGoal];
     });
-    setModalVisible(false);
   };
 
   const handleChange = (e) => {
@@ -283,12 +282,16 @@ export default function App() {
             data={goals}
             renderItem={(item) => {
               return (
-                <Pressable
-                  style={styles.flatListContainerPressable}
-                  onPress={() => handleDelete(item.index)}
-                >
-                  <Text style={styles.flatListContainerText}>{item.item}</Text>
-                </Pressable>
+                <View>
+                  <Pressable
+                    style={styles.flatListContainerPressable}
+                    onPress={() => handleDelete(item.index)}
+                  >
+                    <Text style={styles.flatListContainerText}>
+                      {item.index + 1}: {item.item}
+                    </Text>
+                  </Pressable>
+                </View>
               );
             }}
           />
@@ -313,7 +316,7 @@ const styles = StyleSheet.create({
   textInputComponent: {
     borderWidth: 1,
     paddingHorizontal: 8,
-    width: "60%",
+    width: "50%",
     paddingVertical: 8,
   },
   buttonContainer: {
