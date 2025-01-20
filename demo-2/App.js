@@ -136,25 +136,56 @@
 //   },
 // });
 
-import { StatusBar } from "expo-status-bar";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Pressable,
-  TextInput,
-  Modal,
-} from "react-native";
+import { StyleSheet, Text, View, Modal, Pressable } from "react-native";
 import "@expo/metro-runtime";
+import { useState } from "react";
 
 export default function App() {
+  const [isVisible, setIsVisible] = useState(false);
+  const handlePress = () => {
+    setIsVisible((prev) => {
+      return !prev;
+    });
+  };
   return (
     <View style={styles.appContainer}>
-      <Text>Hello, World!</Text>
+      <Modal visible={isVisible} animationType="fade">
+        <View
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: 200,
+          }}
+        >
+          <Text>Hello, World!</Text>
+        </View>
+
+        <Pressable style={styles.pressed} onPress={handlePress}>
+          <Text style={styles.pressedText}>Cancel Modal</Text>
+        </Pressable>
+      </Modal>
+      <Pressable style={styles.pressed} onPress={handlePress}>
+        <Text style={styles.pressedText}>Click Me</Text>
+      </Pressable>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  appContainer: {},
+  appContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  pressed: {
+    marginTop: 20,
+    backgroundColor: "green",
+    padding: 12,
+    borderRadius: 10,
+  },
+  pressedText: {
+    color: "white",
+    fontSize: 22,
+    fontWeight: "bold",
+  },
 });
