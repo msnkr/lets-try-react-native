@@ -240,14 +240,25 @@ export default function App() {
       </Modal>
       <View style={styles.goalsContainer}>
         <Pressable style={styles.buttonContainer} onPress={handlePress}>
-          <Text style={styles.buttonText}>Add</Text>
+          <Text
+            style={[
+              styles.buttonText,
+              {
+                textAlign: "center",
+              },
+            ]}
+          >
+            Add
+          </Text>
         </Pressable>
         <View style={styles.flatListContainer}>
           <FlatList
             data={goals}
             renderItem={(item) => {
               return (
-                <Text style={styles.flatListContainerText}>{item.item}</Text>
+                <Pressable style={styles.flatListContainerPressable}>
+                  <Text style={styles.flatListContainerText}>{item.item}</Text>
+                </Pressable>
               );
             }}
           />
@@ -285,16 +296,22 @@ const styles = StyleSheet.create({
   },
   goalsContainer: {
     flex: 2,
-    justifyContent: "center",
-    alignItems: "center",
     marginTop: 100,
-    width: "100%",
+    width: "60%",
   },
   flatListContainer: {
     flex: 5,
     marginTop: 100,
   },
+  flatListContainerPressable: {
+    backgroundColor: "black",
+    margin: 5,
+    padding: 8,
+    borderRadius: 8,
+  },
   flatListContainerText: {
     fontSize: 22,
+    textTransform: "capitalize",
+    color: "white",
   },
 });
