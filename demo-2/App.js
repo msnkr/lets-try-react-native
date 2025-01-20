@@ -212,12 +212,15 @@ import {
   TextInput,
   Pressable,
   Modal,
+  ScrollView,
+  FlatList,
 } from "react-native";
 import "@expo/metro-runtime";
 import { useState } from "react";
 
 export default function App() {
   const [modalVisible, setModalVisible] = useState(false);
+  const [goals, setGoals] = useState(["todo1", "todo2", "todo3"]);
 
   const handlePress = () => {
     setModalVisible((prev) => {
@@ -239,6 +242,16 @@ export default function App() {
         <Pressable style={styles.buttonContainer} onPress={handlePress}>
           <Text style={styles.buttonText}>Add</Text>
         </Pressable>
+        <View style={styles.flatListContainer}>
+          <FlatList
+            data={goals}
+            renderItem={(item) => {
+              return (
+                <Text style={styles.flatListContainerText}>{item.item}</Text>
+              );
+            }}
+          />
+        </View>
       </View>
     </View>
   );
@@ -271,7 +284,17 @@ const styles = StyleSheet.create({
     color: "white",
   },
   goalsContainer: {
+    flex: 2,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 100,
+    width: "100%",
+  },
+  flatListContainer: {
     flex: 5,
     marginTop: 100,
+  },
+  flatListContainerText: {
+    fontSize: 22,
   },
 });
