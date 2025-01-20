@@ -220,7 +220,19 @@ import { useState } from "react";
 
 export default function App() {
   const [modalVisible, setModalVisible] = useState(false);
+  const [changeGoal, setChangeGoal] = useState("");
   const [goals, setGoals] = useState(["todo1", "todo2", "todo3"]);
+
+  const handleAdd = () => {
+    setGoals((prevGoals) => {
+      return [...prevGoals, changeGoal];
+    });
+    setModalVisible(false);
+  };
+
+  const handleChange = (e) => {
+    setChangeGoal(e);
+  };
 
   const handlePress = () => {
     setModalVisible((prev) => {
@@ -232,8 +244,12 @@ export default function App() {
     <View style={styles.appContainer}>
       <Modal visible={modalVisible} animationType="slide">
         <View style={styles.textInputContainer}>
-          <TextInput style={styles.textInputComponent} placeholder="Add todo" />
-          <Pressable style={styles.buttonContainer} onPress={handlePress}>
+          <TextInput
+            style={styles.textInputComponent}
+            placeholder="Add todo"
+            onChangeText={handleChange}
+          />
+          <Pressable style={styles.buttonContainer} onPress={handleAdd}>
             <Text style={styles.buttonText}>Add</Text>
           </Pressable>
           <Pressable style={styles.buttonContainer} onPress={handlePress}>
