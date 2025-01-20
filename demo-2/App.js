@@ -149,9 +149,21 @@ export default function App() {
   };
   return (
     <View style={styles.appContainer}>
+      <Modal
+        visible={isVisible}
+        style={styles.modalContainer}
+        animationType="slide"
+      >
+        <View style={styles.container}>
+          <Text style={styles.modalText}>Hello, World!</Text>
+          <Pressable style={styles.button} onPress={handlePress}>
+            <Text style={styles.buttonText}>Dont Show Modal</Text>
+          </Pressable>
+        </View>
+      </Modal>
       <View style={styles.container}>
         <Text style={styles.modalText}>Hello, World!</Text>
-        <Pressable style={styles.button}>
+        <Pressable style={styles.button} onPress={handlePress}>
           <Text style={styles.buttonText}>Show Modal</Text>
         </Pressable>
       </View>
@@ -166,6 +178,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   container: {
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -183,5 +196,11 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "white",
     fontWeight: "bold",
+  },
+  modalContainer: {
+    marginTop: 100,
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
