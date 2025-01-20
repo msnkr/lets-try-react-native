@@ -236,6 +236,9 @@ export default function App() {
           <Pressable style={styles.buttonContainer} onPress={handlePress}>
             <Text style={styles.buttonText}>Add</Text>
           </Pressable>
+          <Pressable style={styles.buttonContainer} onPress={handlePress}>
+            <Text style={styles.buttonText}>Cancel</Text>
+          </Pressable>
         </View>
       </Modal>
       <View style={styles.goalsContainer}>
@@ -290,6 +293,7 @@ const styles = StyleSheet.create({
     backgroundColor: "purple",
     paddingVertical: 8,
     paddingHorizontal: 12,
+    marginHorizontal: 5,
   },
   buttonText: {
     color: "white",
