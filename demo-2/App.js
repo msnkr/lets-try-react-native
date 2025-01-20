@@ -223,6 +223,14 @@ export default function App() {
   const [changeGoal, setChangeGoal] = useState("");
   const [goals, setGoals] = useState(["todo1", "todo2", "todo3"]);
 
+  const handleDelete = (index) => {
+    setGoals((prevGoals) => {
+      return prevGoals.filter((item, id) => {
+        return index !== id;
+      });
+    });
+  };
+
   const handleAdd = () => {
     setGoals((prevGoals) => {
       return [...prevGoals, changeGoal];
@@ -275,7 +283,10 @@ export default function App() {
             data={goals}
             renderItem={(item) => {
               return (
-                <Pressable style={styles.flatListContainerPressable}>
+                <Pressable
+                  style={styles.flatListContainerPressable}
+                  onPress={() => handleDelete(item.index)}
+                >
                   <Text style={styles.flatListContainerText}>{item.item}</Text>
                 </Pressable>
               );
