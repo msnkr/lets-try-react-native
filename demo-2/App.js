@@ -357,88 +357,14 @@
 //   },
 // });
 
-import {
-  StyleSheet,
-  View,
-  Text,
-  TextInput,
-  Pressable,
-  Modal,
-  ScrollView,
-  FlatList,
-} from "react-native";
+import "react";
+import { StyleSheet, View, Text } from "react-native";
 import "@expo/metro-runtime";
-import { useState } from "react";
-
-import ModalComponent from "./components/modalComponent";
 
 export default function App() {
-  const [changeGoal, setChangeGoal] = useState("");
-  const [goals, setGoals] = useState([]);
-
-  const handleDelete = (index) => {
-    setGoals((prevGoals) => {
-      return prevGoals.filter((item, id) => {
-        return index !== id;
-      });
-    });
-  };
-
-  const handleAdd = () => {
-    if (changeGoal !== "") {
-      setGoals((prevGoals) => {
-        return [...prevGoals, changeGoal];
-      });
-    }
-    setModalVisible(false);
-  };
-
-  const handleChange = (e) => {
-    setChangeGoal(e);
-  };
-
-  const handlePress = () => {
-    setModalVisible((prev) => {
-      return !prev;
-    });
-  };
-
   return (
     <View style={styles.appContainer}>
-      <ModalComponent />
-      <View style={styles.goalsContainer}>
-        <Pressable style={styles.buttonContainer} onPress={handlePress}>
-          <Text
-            style={[
-              styles.buttonText,
-              {
-                textAlign: "center",
-              },
-            ]}
-          >
-            Add
-          </Text>
-        </Pressable>
-        <View style={styles.flatListContainer}>
-          <FlatList
-            data={goals}
-            renderItem={(item) => {
-              return (
-                <View>
-                  <Pressable
-                    style={styles.flatListContainerPressable}
-                    onPress={() => handleDelete(item.index)}
-                  >
-                    <Text style={styles.flatListContainerText}>
-                      {item.index + 1}: {item.item}
-                    </Text>
-                  </Pressable>
-                </View>
-              );
-            }}
-          />
-        </View>
-      </View>
+      <Text>Hello, World!</Text>
     </View>
   );
 }
@@ -448,34 +374,5 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-  },
-  buttonContainer: {
-    backgroundColor: "purple",
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    marginHorizontal: 5,
-  },
-  buttonText: {
-    color: "white",
-  },
-  goalsContainer: {
-    flex: 2,
-    marginTop: 100,
-    width: "60%",
-  },
-  flatListContainer: {
-    flex: 5,
-    marginTop: 100,
-  },
-  flatListContainerPressable: {
-    backgroundColor: "black",
-    margin: 5,
-    padding: 8,
-    borderRadius: 8,
-  },
-  flatListContainerText: {
-    fontSize: 22,
-    textTransform: "capitalize",
-    color: "white",
   },
 });
