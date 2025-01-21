@@ -370,8 +370,9 @@ import {
 import "@expo/metro-runtime";
 import { useState } from "react";
 
+import { modalComponent } from "./components/modalComponent";
+
 export default function App() {
-  const [modalVisible, setModalVisible] = useState(false);
   const [changeGoal, setChangeGoal] = useState("");
   const [goals, setGoals] = useState([]);
 
@@ -404,6 +405,7 @@ export default function App() {
 
   return (
     <View style={styles.appContainer}>
+      <modalComponent />
       <View style={styles.goalsContainer}>
         <Pressable style={styles.buttonContainer} onPress={handlePress}>
           <Text

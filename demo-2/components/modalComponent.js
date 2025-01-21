@@ -1,7 +1,10 @@
 import "react";
 import { StyleSheet, View, Text, Pressable, Modal } from "react-native";
+import { useState } from "react";
 
 const modalComponent = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
     <View>
       <Modal visible={modalVisible} animationType="slide">
@@ -50,3 +53,5 @@ const styles = StyleSheet.create({
     color: "white",
   },
 });
+
+export default modalComponent;
