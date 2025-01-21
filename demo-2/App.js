@@ -205,6 +205,158 @@
 //   },
 // });
 
+// import {
+//   StyleSheet,
+//   View,
+//   Text,
+//   TextInput,
+//   Pressable,
+//   Modal,
+//   ScrollView,
+//   FlatList,
+// } from "react-native";
+// import "@expo/metro-runtime";
+// import { useState } from "react";
+
+// export default function App() {
+//   const [modalVisible, setModalVisible] = useState(false);
+//   const [changeGoal, setChangeGoal] = useState("");
+//   const [goals, setGoals] = useState([]);
+
+//   const handleDelete = (index) => {
+//     setGoals((prevGoals) => {
+//       return prevGoals.filter((item, id) => {
+//         return index !== id;
+//       });
+//     });
+//   };
+
+//   const handleAdd = () => {
+//     if (changeGoal !== "") {
+//       setGoals((prevGoals) => {
+//         return [...prevGoals, changeGoal];
+//       });
+//     }
+//     setModalVisible(false);
+//   };
+
+//   const handleChange = (e) => {
+//     setChangeGoal(e);
+//   };
+
+//   const handlePress = () => {
+//     setModalVisible((prev) => {
+//       return !prev;
+//     });
+//   };
+
+//   return (
+//     <View style={styles.appContainer}>
+//       <Modal visible={modalVisible} animationType="slide">
+//         <View style={styles.textInputContainer}>
+//           <TextInput
+//             style={styles.textInputComponent}
+//             placeholder="Add todo"
+//             onChangeText={handleChange}
+//           />
+//           <Pressable style={styles.buttonContainer} onPress={handleAdd}>
+//             <Text
+//               style={[styles.buttonText, { width: 40, textAlign: "center" }]}
+//             >
+//               Add
+//             </Text>
+//           </Pressable>
+//           <Pressable style={styles.buttonContainer} onPress={handlePress}>
+//             <Text style={styles.buttonText}>Cancel</Text>
+//           </Pressable>
+//         </View>
+//       </Modal>
+//       <View style={styles.goalsContainer}>
+//         <Pressable style={styles.buttonContainer} onPress={handlePress}>
+//           <Text
+//             style={[
+//               styles.buttonText,
+//               {
+//                 textAlign: "center",
+//               },
+//             ]}
+//           >
+//             Add
+//           </Text>
+//         </Pressable>
+//         <View style={styles.flatListContainer}>
+//           <FlatList
+//             data={goals}
+//             renderItem={(item) => {
+//               return (
+//                 <View>
+//                   <Pressable
+//                     style={styles.flatListContainerPressable}
+//                     onPress={() => handleDelete(item.index)}
+//                   >
+//                     <Text style={styles.flatListContainerText}>
+//                       {item.index + 1}: {item.item}
+//                     </Text>
+//                   </Pressable>
+//                 </View>
+//               );
+//             }}
+//           />
+//         </View>
+//       </View>
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   appContainer: {
+//     flex: 1,
+//     justifyContent: "center",
+//     alignItems: "center",
+//   },
+//   textInputContainer: {
+//     flexDirection: "row",
+//     flex: 1,
+//     justifyContent: "center",
+//     alignItems: "center",
+//   },
+//   textInputComponent: {
+//     borderWidth: 1,
+//     paddingHorizontal: 8,
+//     width: "50%",
+//     paddingVertical: 8,
+//   },
+//   buttonContainer: {
+//     backgroundColor: "purple",
+//     paddingVertical: 8,
+//     paddingHorizontal: 12,
+//     marginHorizontal: 5,
+//   },
+//   buttonText: {
+//     color: "white",
+//   },
+//   goalsContainer: {
+//     flex: 2,
+//     marginTop: 100,
+//     width: "60%",
+//   },
+//   flatListContainer: {
+//     flex: 5,
+//     marginTop: 100,
+//   },
+//   flatListContainerPressable: {
+//     backgroundColor: "black",
+//     margin: 5,
+//     padding: 8,
+//     borderRadius: 8,
+//   },
+//   flatListContainerText: {
+//     fontSize: 22,
+//     textTransform: "capitalize",
+//     color: "white",
+//   },
+// });
+
 import {
   StyleSheet,
   View,
@@ -252,25 +404,6 @@ export default function App() {
 
   return (
     <View style={styles.appContainer}>
-      <Modal visible={modalVisible} animationType="slide">
-        <View style={styles.textInputContainer}>
-          <TextInput
-            style={styles.textInputComponent}
-            placeholder="Add todo"
-            onChangeText={handleChange}
-          />
-          <Pressable style={styles.buttonContainer} onPress={handleAdd}>
-            <Text
-              style={[styles.buttonText, { width: 40, textAlign: "center" }]}
-            >
-              Add
-            </Text>
-          </Pressable>
-          <Pressable style={styles.buttonContainer} onPress={handlePress}>
-            <Text style={styles.buttonText}>Cancel</Text>
-          </Pressable>
-        </View>
-      </Modal>
       <View style={styles.goalsContainer}>
         <Pressable style={styles.buttonContainer} onPress={handlePress}>
           <Text
@@ -313,18 +446,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-  },
-  textInputContainer: {
-    flexDirection: "row",
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  textInputComponent: {
-    borderWidth: 1,
-    paddingHorizontal: 8,
-    width: "50%",
-    paddingVertical: 8,
   },
   buttonContainer: {
     backgroundColor: "purple",
