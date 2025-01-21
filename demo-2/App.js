@@ -361,10 +361,12 @@ import "react";
 import { StyleSheet, View, Text } from "react-native";
 import "@expo/metro-runtime";
 
+import ShowText from "./components/ShowText";
+
 export default function App() {
   return (
     <View style={styles.appContainer}>
-      <Text>Hello, World!</Text>
+      <ShowText />
     </View>
   );
 }
