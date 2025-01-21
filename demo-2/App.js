@@ -383,7 +383,7 @@ import "react";
 import { StyleSheet, View, Text } from "react-native";
 import "@expo/metro-runtime";
 
-import ModalComponent from "./components/modalComponent.js";
+import ModalComponent from "./components/ModalComponent.js";
 
 const App = () => {
   return (

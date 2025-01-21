@@ -5,7 +5,7 @@ import "@expo/metro-runtime";
 const ModalComponent = () => {
   return (
     <View style={styles.textInputContainer}>
-      <TextInput placeholder="Add Todo" />
+      <TextInput placeholder="Add Todo" style={styles.textInputComponent} />
       <Pressable style={styles.backgroundButton}>
         <Text style={styles.buttonText}>Submit</Text>
       </Pressable>
@@ -18,6 +18,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    flexDirection: "row",
+  },
+  textInputComponent: {
+    border: 2,
   },
   backgroundButton: {
     backgroundColor: "#60696b",
