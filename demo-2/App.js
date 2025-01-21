@@ -383,12 +383,15 @@ import "react";
 import { StyleSheet, View, Text } from "react-native";
 import "@expo/metro-runtime";
 
+import { useState } from "react";
 import ModalComponent from "./components/ModalComponent.js";
 
 const App = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
     <View style={styles.appContainer}>
-      <ModalComponent />
+      <ModalComponent isVisible={modalVisible} />
     </View>
   );
 };
