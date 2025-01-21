@@ -2,33 +2,29 @@ import "react";
 import { StyleSheet, View, Text, Pressable, Modal } from "react-native";
 import { useState } from "react";
 
-const modalComponent = () => {
+export default function ModalComponent() {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <View>
       <Modal visible={modalVisible} animationType="slide">
         <View style={styles.textInputContainer}>
-          <TextInput
-            style={styles.textInputComponent}
-            placeholder="Add todo"
-            onChangeText={handleChange}
-          />
-          <Pressable style={styles.buttonContainer} onPress={handleAdd}>
+          <TextInput style={styles.textInputComponent} placeholder="Add todo" />
+          <Pressable style={styles.buttonContainer}>
             <Text
               style={[styles.buttonText, { width: 40, textAlign: "center" }]}
             >
               Add
             </Text>
           </Pressable>
-          <Pressable style={styles.buttonContainer} onPress={handlePress}>
+          <Pressable style={styles.buttonContainer}>
             <Text style={styles.buttonText}>Cancel</Text>
           </Pressable>
         </View>
       </Modal>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   textInputContainer: {
@@ -53,5 +49,3 @@ const styles = StyleSheet.create({
     color: "white",
   },
 });
-
-export default modalComponent;
