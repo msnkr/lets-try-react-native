@@ -357,19 +357,41 @@
 //   },
 // });
 
+// import "react";
+// import { StyleSheet, View, Text } from "react-native";
+// import "@expo/metro-runtime";
+
+// import ShowText from "./components/ShowText";
+
+// export default function App() {
+//   return (
+//     <View style={styles.appContainer}>
+//       <ShowText />
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   appContainer: {
+//     flex: 1,
+//     justifyContent: "center",
+//     alignItems: "center",
+//   },
+// });
+
 import "react";
 import { StyleSheet, View, Text } from "react-native";
 import "@expo/metro-runtime";
 
-import ShowText from "./components/ShowText";
+import ModalComponent from "./components/modalComponent.js";
 
-export default function App() {
+const App = () => {
   return (
     <View style={styles.appContainer}>
-      <ShowText />
+      <ModalComponent />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   appContainer: {
@@ -378,3 +400,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
+
+export default App;

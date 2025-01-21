@@ -1,15 +1,15 @@
-import "react";
-import { StyleSheet, Text } from "react-native";
-import "@expo/metro-runtime";
+// import "react";
+// import { StyleSheet, Text } from "react-native";
+// import "@expo/metro-runtime";
 
-const ShowText = () => {
-  return <Text style={styles.textComponent}>Hello, World!</Text>;
-};
+// const ShowText = () => {
+//   return <Text style={styles.textComponent}>Hello, World!</Text>;
+// };
 
-export default ShowText;
+// export default ShowText;
 
-const styles = StyleSheet.create({
-  textComponent: {
-    fontSize: 22,
-  },
-});
+// const styles = StyleSheet.create({
+//   textComponent: {
+//     fontSize: 22,
+//   },
+// });
