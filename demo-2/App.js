@@ -232,9 +232,11 @@ export default function App() {
   };
 
   const handleAdd = () => {
-    setGoals((prevGoals) => {
-      return [...prevGoals, changeGoal];
-    });
+    if (changeGoal !== "") {
+      setGoals((prevGoals) => {
+        return [...prevGoals, changeGoal];
+      });
+    }
     setModalVisible(false);
   };
 
