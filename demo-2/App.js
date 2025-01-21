@@ -221,7 +221,7 @@ import { useState } from "react";
 export default function App() {
   const [modalVisible, setModalVisible] = useState(false);
   const [changeGoal, setChangeGoal] = useState("");
-  const [goals, setGoals] = useState(["todo1", "todo2", "todo3"]);
+  const [goals, setGoals] = useState([]);
 
   const handleDelete = (index) => {
     setGoals((prevGoals) => {
@@ -235,6 +235,7 @@ export default function App() {
     setGoals((prevGoals) => {
       return [...prevGoals, changeGoal];
     });
+    setModalVisible(false);
   };
 
   const handleChange = (e) => {
@@ -257,7 +258,11 @@ export default function App() {
             onChangeText={handleChange}
           />
           <Pressable style={styles.buttonContainer} onPress={handleAdd}>
-            <Text style={styles.buttonText}>Add</Text>
+            <Text
+              style={[styles.buttonText, { width: 40, textAlign: "center" }]}
+            >
+              Add
+            </Text>
           </Pressable>
           <Pressable style={styles.buttonContainer} onPress={handlePress}>
             <Text style={styles.buttonText}>Cancel</Text>
