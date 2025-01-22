@@ -385,6 +385,7 @@ import "@expo/metro-runtime";
 
 import { useState } from "react";
 
+import TodoComponent from "./components/TodoComponent.js";
 import ModalComponent from "./components/ModalComponent.js";
 
 const App = () => {
@@ -405,9 +406,7 @@ const App = () => {
         </Pressable>
       </View>
       <View style={styles.todoContainer}>
-        <Text>1</Text>
-        <Text>2</Text>
-        <Text>3</Text>
+        <TodoComponent />
       </View>
     </View>
   );

@@ -11,7 +11,7 @@ import "@expo/metro-runtime";
 
 const ModalComponent = ({ checked, isVisible }) => {
   return (
-    <Modal visible={isVisible}>
+    <Modal visible={isVisible} animationType="fade">
       <View style={styles.textInputContainer}>
         <TextInput placeholder="Add Todo" style={styles.textInputComponent} />
         <Pressable style={styles.backgroundButton}>
