@@ -8,15 +8,20 @@ import {
   Modal,
 } from "react-native";
 import "@expo/metro-runtime";
-import { useState } from "react";
 
-const ModalComponent = ({ checked, isVisible }) => {
+const ModalComponent = ({ checked, isVisible, changeText, submitText }) => {
   return (
     <Modal visible={isVisible} animationType="fade">
       <View style={styles.textInputContainer}>
-        <TextInput placeholder="Add Todo" style={styles.textInputComponent} />
+        <TextInput
+          placeholder="Add Todo"
+          style={styles.textInputComponent}
+          onChangeText={changeText}
+        />
         <Pressable style={styles.backgroundButton}>
-          <Text style={styles.buttonText}>Submit</Text>
+          <Text style={styles.buttonText} onPress={submitText}>
+            Submit
+          </Text>
         </Pressable>
         <Pressable style={styles.backgroundButton}>
           <Text style={styles.buttonText} onPress={checked}>

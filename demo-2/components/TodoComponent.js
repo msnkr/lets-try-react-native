@@ -2,8 +2,6 @@ import "react";
 import "@expo/metro-runtime";
 import { StyleSheet, View, Text, FlatList } from "react-native";
 
-import { use, useState } from "react";
-
 const TodoComponent = ({ arr }) => {
   return (
     <FlatList

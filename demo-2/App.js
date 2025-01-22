@@ -393,6 +393,17 @@ const App = () => {
   const [todoArr, setTodoArr] = useState(["todo1", "todo2", "todo3"]);
   const [addTodo, setAddTodo] = useState("");
 
+  const handlePress = () => {
+    setTodoArr((prev) => {
+      return [...prev, addTodo];
+    });
+    handleModal();
+  };
+
+  const handleChange = (e) => {
+    setAddTodo(e);
+  };
+
   const handleModal = () => {
     setModalVisible((prev) => {
       return !prev;
@@ -401,7 +412,12 @@ const App = () => {
 
   return (
     <View style={styles.appContainer}>
-      <ModalComponent isVisible={modalVisible} checked={handleModal} />
+      <ModalComponent
+        isVisible={modalVisible}
+        checked={handleModal}
+        changeText={handleChange}
+        submitText={handlePress}
+      />
       <View style={styles.addViewContainer}>
         <Pressable style={styles.backgroundButton} onPress={handleModal}>
           <Text style={styles.buttonText}>Add</Text>
