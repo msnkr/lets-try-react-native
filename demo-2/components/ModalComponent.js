@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import "@expo/metro-runtime";
 
-const ModalComponent = ({ isVisible }) => {
+const ModalComponent = ({ checked, isVisible }) => {
   return (
     <Modal visible={isVisible}>
       <View style={styles.textInputContainer}>
@@ -18,7 +18,9 @@ const ModalComponent = ({ isVisible }) => {
           <Text style={styles.buttonText}>Submit</Text>
         </Pressable>
         <Pressable style={styles.backgroundButton}>
-          <Text style={styles.buttonText}>Cancel</Text>
+          <Text style={styles.buttonText} onPress={checked}>
+            Cancel
+          </Text>
         </Pressable>
       </View>
     </Modal>

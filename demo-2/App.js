@@ -398,7 +398,7 @@ const App = () => {
 
   return (
     <View style={styles.appContainer}>
-      <ModalComponent isVisible={modalVisible} />
+      <ModalComponent isVisible={modalVisible} checked={handleModal} />
       <View>
         <Pressable style={styles.backgroundButton} onPress={handleModal}>
           <Text style={styles.buttonText}>Add</Text>
