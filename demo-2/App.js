@@ -393,6 +393,14 @@ const App = () => {
   const [todoArr, setTodoArr] = useState(["todo1", "todo2", "todo3"]);
   const [addTodo, setAddTodo] = useState("");
 
+  const handleDelete = (idx) => {
+    setTodoArr((prev) => {
+      return prev.filter((i, index) => {
+        return index !== idx;
+      });
+    });
+  };
+
   const handlePress = () => {
     setTodoArr((prev) => {
       return [...prev, addTodo];
@@ -424,7 +432,7 @@ const App = () => {
         </Pressable>
       </View>
       <View style={styles.todoContainer}>
-        <TodoComponent arr={todoArr} />
+        <TodoComponent arr={todoArr} deleteItem={handleDelete} />
       </View>
     </View>
   );

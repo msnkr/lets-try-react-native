@@ -1,16 +1,21 @@
 import "react";
 import "@expo/metro-runtime";
-import { StyleSheet, View, Text, FlatList } from "react-native";
+import { StyleSheet, Text, FlatList, Pressable } from "react-native";
 
-const TodoComponent = ({ arr }) => {
+const TodoComponent = ({ arr, deleteItem }) => {
   return (
     <FlatList
       data={arr}
       renderItem={(item) => {
         return (
-          <Text style={styles.todoText}>
-            {item.index + 1}: {item.item}
-          </Text>
+          <Pressable>
+            <Text
+              style={styles.todoText}
+              onPress={() => deleteItem(item.index)}
+            >
+              {item.index + 1}: {item.item}
+            </Text>
+          </Pressable>
         );
       }}
     />
