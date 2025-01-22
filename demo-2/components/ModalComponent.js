@@ -9,9 +9,9 @@ import {
 } from "react-native";
 import "@expo/metro-runtime";
 
-const ModalComponent = ({ modalVisible }) => {
+const ModalComponent = ({ isVisible }) => {
   return (
-    <Modal visible={false}>
+    <Modal visible={isVisible}>
       <View style={styles.textInputContainer}>
         <TextInput placeholder="Add Todo" style={styles.textInputComponent} />
         <Pressable style={styles.backgroundButton}>

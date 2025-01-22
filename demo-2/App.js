@@ -380,18 +380,30 @@
 // });
 
 import "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, Pressable } from "react-native";
 import "@expo/metro-runtime";
 
 import { useState } from "react";
+
 import ModalComponent from "./components/ModalComponent.js";
 
 const App = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
+  const handleModal = () => {
+    setModalVisible((prev) => {
+      return !prev;
+    });
+  };
+
   return (
     <View style={styles.appContainer}>
       <ModalComponent isVisible={modalVisible} />
+      <View>
+        <Pressable style={styles.backgroundButton} onPress={handleModal}>
+          <Text style={styles.buttonText}>Add</Text>
+        </Pressable>
+      </View>
     </View>
   );
 };
@@ -401,6 +413,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  backgroundButton: {
+    backgroundColor: "#60696b",
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 4,
+    marginHorizontal: 4,
+  },
+  buttonText: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 18,
   },
 });
 
