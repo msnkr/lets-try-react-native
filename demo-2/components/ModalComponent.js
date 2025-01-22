@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     fontSize: 18,
     marginHorizontal: 4,
+    width: "60%",
   },
   backgroundButton: {
     backgroundColor: "#60696b",

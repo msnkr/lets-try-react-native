@@ -402,10 +402,12 @@ const App = () => {
   };
 
   const handlePress = () => {
-    setTodoArr((prev) => {
-      return [...prev, addTodo];
-    });
-    handleModal();
+    if (addTodo !== "") {
+      setTodoArr((prev) => {
+        return [...prev, addTodo];
+      });
+      handleModal();
+    }
   };
 
   const handleChange = (e) => {
