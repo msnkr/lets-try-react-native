@@ -4,11 +4,10 @@ import { StyleSheet, View, Text, FlatList } from "react-native";
 
 import { use, useState } from "react";
 
-const TodoComponent = () => {
-  const [todoArr, setTodoArr] = useState(["todo1", "todo2", "todo3"]);
+const TodoComponent = ({ arr }) => {
   return (
     <FlatList
-      data={todoArr}
+      data={arr}
       renderItem={(item) => {
         return (
           <Text style={styles.todoText}>

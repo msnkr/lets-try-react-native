@@ -390,6 +390,8 @@ import ModalComponent from "./components/ModalComponent.js";
 
 const App = () => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [todoArr, setTodoArr] = useState(["todo1", "todo2", "todo3"]);
+  const [addTodo, setAddTodo] = useState("");
 
   const handleModal = () => {
     setModalVisible((prev) => {
@@ -406,7 +408,7 @@ const App = () => {
         </Pressable>
       </View>
       <View style={styles.todoContainer}>
-        <TodoComponent />
+        <TodoComponent arr={todoArr} />
       </View>
     </View>
   );
