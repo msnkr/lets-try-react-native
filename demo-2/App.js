@@ -399,10 +399,15 @@ const App = () => {
   return (
     <View style={styles.appContainer}>
       <ModalComponent isVisible={modalVisible} checked={handleModal} />
-      <View>
+      <View style={styles.addViewContainer}>
         <Pressable style={styles.backgroundButton} onPress={handleModal}>
           <Text style={styles.buttonText}>Add</Text>
         </Pressable>
+      </View>
+      <View style={styles.todoContainer}>
+        <Text>1</Text>
+        <Text>2</Text>
+        <Text>3</Text>
       </View>
     </View>
   );
@@ -425,6 +430,15 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
     fontSize: 18,
+  },
+  addViewContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  todoContainer: {
+    flex: 2,
+    width: "60%",
   },
 });
 
