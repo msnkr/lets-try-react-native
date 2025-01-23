@@ -388,10 +388,20 @@ import { useState } from "react";
 import TodoComponent from "./components/TodoComponent.js";
 import ModalComponent from "./components/ModalComponent.js";
 
+const randomNumber = () => {
+  return Math.floor(Math.random() * 100).toString();
+};
+
 const App = () => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [todoArr, setTodoArr] = useState(["todo1", "todo2", "todo3"]);
+  const [todoArr, setTodoArr] = useState({
+    randomNumber: "todo1",
+    randomNumber: "todo2",
+    randomNumber: "todo3",
+  });
   const [addTodo, setAddTodo] = useState("");
+
+  console.log(todoArr.randomNumber);
 
   const handleDelete = (idx) => {
     setTodoArr((prev) => {
