@@ -1,5 +1,12 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, FlatList, Pressable } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  Pressable,
+  Image,
+} from "react-native";
 import "@expo/metro-runtime";
 
 // Get an arr of random items for the homepage
@@ -12,7 +19,7 @@ import data from "./data.json";
 
 const exerciseArr = [];
 
-for (let index = 0; index < 10; index++) {
+for (let index = 0; index < 20; index++) {
   exerciseArr.push(data[Math.floor(Math.random() * 100)]);
 }
 
@@ -22,13 +29,11 @@ export default function App() {
       <FlatList
         data={exerciseArr}
         renderItem={(item) => {
-          const lowerCase = item.item.name.toLowerCase();
-          console.log(lowerCase.replace(/ /g, "_"));
+          const imageName = item.item.name.replace(/\s+/g, "_");
+          console.log(imageName);
           return (
             <View>
               <Text>{item.item.name}</Text>
-              <Text>{item.item.level}</Text>
-              <Text>{item.item.primaryMuscles}</Text>
             </View>
           );
         }}
@@ -40,7 +45,6 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
