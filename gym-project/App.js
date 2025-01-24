@@ -2,11 +2,10 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import "@expo/metro-runtime";
 
-import RNFS from "react-native-fs";
-const folderPath = RNFS.DocumentDirectoryPath;
+import data from "./data.json";
 
 export default function App() {
-  console.log(folderPath);
+  console.log(data[0]);
   return (
     <View style={styles.container}>
       <Text>Hello, World!</Text>
