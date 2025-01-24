@@ -1,14 +1,16 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, FlatList, Image } from "react-native";
 import "@expo/metro-runtime";
 
 import data from "./data.json";
+const imagePath = "./assets/exercises/";
+
+import SearchComponent from "./components/SearchComponent";
 
 export default function App() {
-  console.log(data[0]);
   return (
     <View style={styles.container}>
-      <Text>Hello, World!</Text>
+      <SearchComponent />
       <StatusBar style="auto" />
     </View>
   );
