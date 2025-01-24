@@ -27,6 +27,7 @@ export default SearchComponent;
 
 const styles = StyleSheet.create({
   searchContainer: {
+    flex: 1,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
   TextInputComponent: {
     borderWidth: 1,
     padding: 8,
-    width: "70%",
+    width: "60%",
   },
   pressableContainer: {
     backgroundColor: "black",
@@ -43,6 +44,6 @@ const styles = StyleSheet.create({
   },
   TextContainer: {
     color: "white",
-    padding: 8,
+    padding: 9,
   },
 });
