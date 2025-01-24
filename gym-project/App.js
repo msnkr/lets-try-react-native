@@ -2,12 +2,11 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import "@expo/metro-runtime";
 
-const fs = require("graceful-fs");
-const path = require("path");
-
-const folderPath = "./assets/exercises";
+import RNFS from "react-native-fs";
+const folderPath = RNFS.DocumentDirectoryPath;
 
 export default function App() {
+  console.log(folderPath);
   return (
     <View style={styles.container}>
       <Text>Hello, World!</Text>
